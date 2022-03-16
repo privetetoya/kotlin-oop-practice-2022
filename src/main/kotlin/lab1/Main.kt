@@ -3,7 +3,7 @@ package lab1
 import java.lang.Integer.max
 import kotlin.math.min
 
-fun parseBooks(books: String): List<Book> {
+fun parseBooks(books: String): List<Book> {//implementing a parser
     val separator = "//"
     val comma = ','
     val point = '.'
@@ -11,29 +11,29 @@ fun parseBooks(books: String): List<Book> {
     val listOfBookLines = books.lines().toMutableList()
     (0 until ((listOfBookLines.size))).forEach { i ->
         val authors = mutableListOf<String>()
-        listOfBookLines[i] = listOfBookLines[i].substringAfter(point)
+        listOfBookLines[i] = listOfBookLines[i].substringAfter(point)   //take string after point
 
-        val title: String = listOfBookLines[i].substringBefore(separator).trim()
-        listOfBookLines[i] = listOfBookLines[i].substringAfter(separator)
+        val title: String = listOfBookLines[i].substringBefore(separator).trim()    // take string between N. and //
+        listOfBookLines[i] = listOfBookLines[i].substringAfter(separator) //take string after first separator
 
-        if (listOfBookLines[i].substringBefore(separator).trim().isNotEmpty()) {
+        if (listOfBookLines[i].substringBefore(separator).trim().isNotEmpty()) { //take authors between separator and comma
             while (listOfBookLines[i].contains(comma)) {
                 authors.add(listOfBookLines[i].substringBefore(comma).trim())
                 listOfBookLines[i] = listOfBookLines[i].substringAfter(comma)
 
             }
-            authors.add(listOfBookLines[i].substringBefore(separator).trim())
+            authors.add(listOfBookLines[i].substringBefore(separator).trim()) //take author between last comma and separator
             listOfBookLines[i] = listOfBookLines[i].substringAfter(separator)
         }
 
-        val year: Int = listOfBookLines[i].filter { it.isDigit() }.toInt()
+        val year: Int = listOfBookLines[i].filter { it.isDigit() }.toInt() // take year of book
         bookList.add(Book(title, authors, year))
     }
     return bookList
 }
 
 
-fun findTheOldest(bookList: List<Book>): List<Book> {
+fun findTheOldest(bookList: List<Book>): List<Book> { //search for the oldest book
     var earliestYear: Int = Int.MAX_VALUE
     bookList.forEach {
         earliestYear = min(earliestYear, it.year)
@@ -41,7 +41,7 @@ fun findTheOldest(bookList: List<Book>): List<Book> {
     return bookList.filter { it.year == earliestYear }
 }
 
-fun findTheNewest(bookList: List<Book>): List<Book> {
+fun findTheNewest(bookList: List<Book>): List<Book> { //search for the newest book
     var oldestYear : Int = Int.MIN_VALUE
     bookList.forEach {
         oldestYear = max(oldestYear, it.year)
@@ -49,12 +49,12 @@ fun findTheNewest(bookList: List<Book>): List<Book> {
     return bookList.filter { it.year == oldestYear }
 }
 
-fun findTheLongest(bookList: List<Book>): List<Book>  {
+fun findTheLongest(bookList: List<Book>): List<Book>  { //search for book with the longest title
     val longestTitle = bookList.maxOf {it.title.length}
     return bookList.filter {it.title.length == longestTitle}
 }
 
-fun findTheShortest(bookList: List<Book>): List<Book>  {
+fun findTheShortest(bookList: List<Book>): List<Book>  { //search for the book with the shortest title
     val shortestTitle = bookList.minOf {it.title.length}
     return bookList.filter {it.title.length == shortestTitle}
 }
