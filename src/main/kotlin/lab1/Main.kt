@@ -1,5 +1,6 @@
 package lab1
 
+import java.lang.Integer.max
 import kotlin.math.min
 
 fun parseBooks(books: String): List<Book> {
@@ -40,26 +41,35 @@ fun findTheOldest(bookList: List<Book>): List<Book> {
     return bookList.filter { it.year == earliestYear }
 }
 
-fun newest() {
+fun findTheNewest(bookList: List<Book>): List<Book> {
+    var oldestYear : Int = Int.MIN_VALUE
+    bookList.forEach {
+        oldestYear = max(oldestYear, it.year)
+    }
+    return bookList.filter { it.year == oldestYear }
 }
 
-fun longest() {
-
+fun findTheLongest(bookList: List<Book>): List<Book>  {
+    val longestTitle = bookList.maxOf {it.title.length}
+    return bookList.filter {it.title.length == longestTitle}
 }
 
-fun shortest() {
-
+fun findTheShortest(bookList: List<Book>): List<Book>  {
+    val shortestTitle = bookList.minOf {it.title.length}
+    return bookList.filter {it.title.length == shortestTitle}
 }
 
 
 fun main() {
     val bookListForParsing =
-        "1. fairy tails // Alexander Sergeyevich Pushkin // 1823\n" +
-                "2. Math // Kolpakov, Zheleznyak, Malov, Malova// 1823\n" +
-                "3. On the Western Front // Erich Mariya Remark // 1927"
+                "1. Война и миръ // Лев Николаевич Толстой // 1865\n" +
+                "2. Двенадцать стульев // Ильф И., Петров Е.// 1927\n" +
+                "3. Im Westen nichts Neues // Erich Maria Remarque // 1927"
     println(parseBooks(bookListForParsing))
-    println(parseBooks(bookListForParsing)[1].author.size)
 
+    println(findTheNewest(parseBooks(bookListForParsing)))
     println(findTheOldest(parseBooks(bookListForParsing)))
+    println(findTheLongest(parseBooks(bookListForParsing)))
+    println(findTheShortest(parseBooks(bookListForParsing)))
 
 }
