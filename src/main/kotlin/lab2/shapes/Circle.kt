@@ -1,7 +1,7 @@
-package lab2.Shapes
+package lab2.shapes
 
-import lab2.ColorAndTransparency.ColorAndTransparency
-import lab2.ShapeInterfaces.ColoredShape2d
+import lab2.colorAndTransparency.ColorAndTransparency
+import lab2.shapeInterfaces.ColoredShape2d
 
 
 class Circle(

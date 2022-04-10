@@ -1,4 +1,4 @@
-package lab2.ColorAndTransparency
+package lab2.colorAndTransparency
 
 data class ColorAndTransparency(
     val red: Int,

@@ -1,6 +1,6 @@
-package lab2.ShapeInterfaces
+package lab2.shapeInterfaces
 
-import lab2.ColorAndTransparency.ColorAndTransparency
+import lab2.colorAndTransparency.ColorAndTransparency
 
 interface ColoredShape2d : Shape2d {
     val borderColor: ColorAndTransparency
