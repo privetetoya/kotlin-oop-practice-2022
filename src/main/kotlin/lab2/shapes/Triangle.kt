@@ -8,11 +8,12 @@ import kotlin.math.sqrt
 class Triangle(
     override val fillColor: ColorAndTransparency,
     override val borderColor: ColorAndTransparency,
-    private val side1: Double, private val side2: Double, private val side3: Double
+    private val side1: Double,
+    private val side2: Double,
+    private val side3: Double
 ) : ColoredShape2d {
     init {
-        if (side1 <= 0 || side2 <= 0 || side3 <= 0)
-            throw IllegalArgumentException("Triangle doesn't exist")
+        if (side1 <= 0 || side2 <= 0 || side3 <= 0) throw IllegalArgumentException("Triangle doesn't exist")
     }
 
     override fun calcArea(): Double {

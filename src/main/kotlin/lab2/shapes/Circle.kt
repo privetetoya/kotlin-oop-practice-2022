@@ -10,8 +10,7 @@ class Circle(
     private val radius: Double
 ) : ColoredShape2d {
     init {
-        if (radius <= 0)
-            throw IllegalArgumentException("Circle doesn't exist")
+        if (radius <= 0) throw IllegalArgumentException("Circle doesn't exist")
     }
 
     override fun calcArea(): Double {

@@ -9,8 +9,7 @@ class Square(
     private val side: Double
 ) : ColoredShape2d {
     init {
-        if (side <= 0)
-            throw IllegalArgumentException("Square doesn't exist")
+        if (side <= 0) throw IllegalArgumentException("Square doesn't exist")
     }
 
     override fun calcArea(): Double {
