@@ -1,5 +1,11 @@
 package lab2
 
+import lab2.ColorAndTransparency.ColorAndTransparency
+import lab2.Shapes.Circle
+import lab2.Shapes.Rectangle
+import lab2.Shapes.Square
+import lab2.Shapes.Triangle
+
 fun main() {
     val color1 = ColorAndTransparency(1, 1, 1, 1)
     val color2 = ColorAndTransparency(50, 50, 50, 50)

@@ -1,5 +1,8 @@
 package lab2
 
+import lab2.ColorAndTransparency.ColorAndTransparency
+import lab2.ShapeInterfaces.ColoredShape2d
+
 class ShapeCollector {
     private val shapeList: MutableList<ColoredShape2d> = mutableListOf()
 
