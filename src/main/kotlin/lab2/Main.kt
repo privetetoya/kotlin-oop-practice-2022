@@ -12,10 +12,15 @@ fun main() {
     val color3 = ColorAndTransparency(150, 150, 150, 90)
     val shapeCollector = ShapeCollector()
 
-    val circle = shapeCollector.addShape(Circle(color1, color2, 5.0))
-    val square = shapeCollector.addShape(Square(color1, color3, 4.0))
-    val rectangle = shapeCollector.addShape(Rectangle(color2, color3, 3.0, 4.0))
-    val triangle = shapeCollector.addShape(Triangle(color3, color1, 3.0, 4.0, 5.0))
+    val circle = Circle(color1, color2, 5.0)
+    val square = Square(color1, color3, 4.0)
+    val rectangle = Rectangle(color2, color3, 3.0, 4.0)
+    val triangle = Triangle(color3, color1, 3.0, 4.0, 5.0)
+
+    shapeCollector.addShape(circle)
+    shapeCollector.addShape(square)
+    shapeCollector.addShape(rectangle)
+    shapeCollector.addShape(triangle)
 
     println("Shape collection consists of: ${shapeCollector.getList()}")
     println("Size of shape collection: ${shapeCollector.getListSize()} ")

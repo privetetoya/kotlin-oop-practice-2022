@@ -22,10 +22,6 @@ class ShapeCollector {
         return shapeList.filter { it.calcArea() == maxArea }
     }
 
-    fun sumArea(): Double {
-        return shapeList.sumOf {it.calcArea()}
-    }
-
     fun searchByFill(color: ColorAndTransparency): List<ColoredShape2d> {
         if (shapeList.isEmpty()) return emptyList()
         return shapeList.filter { it.fillColor == color }
@@ -36,24 +32,15 @@ class ShapeCollector {
         return shapeList.filter { it.borderColor == color }
     }
 
-    fun getList(): List<ColoredShape2d> {
-        return shapeList
-    }
+    fun sumArea() = shapeList.sumOf { it.calcArea() }
 
-    fun getListSize(): Int {
-        return shapeList.size
-    }
+    fun getList() = shapeList
 
-    fun searchForGroupByFillColor(): Map<ColorAndTransparency, List<ColoredShape2d>> {
-        return shapeList.groupBy { it.fillColor }
-    }
+    fun getListSize() = shapeList.size
 
-    fun searchForGroupByBorderColor(): Map<ColorAndTransparency, List<ColoredShape2d>> {
-        return shapeList.groupBy { it.borderColor }
-    }
+    fun searchForGroupByFillColor() = shapeList.groupBy { it.fillColor }
 
-    fun searchForGroupOfAnyTypes(groupName : String) : List<ColoredShape2d>
-    {
-        return shapeList.filter {it::class.simpleName == groupName}
-    }
+    fun searchForGroupByBorderColor() = shapeList.groupBy { it.borderColor }
+
+    fun searchForGroupOfAnyTypes(groupName: String) = shapeList.filter { it::class.simpleName == groupName }
 }
