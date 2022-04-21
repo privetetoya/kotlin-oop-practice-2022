@@ -1,5 +1,7 @@
-package lab3
+package lab3.Application
 
+import lab3.NoteAndInterface.Note
+import lab3.NoteAndInterface.NoteInterface
 import java.time.LocalDateTime
 
 class ApplicationForNotes : NoteInterface {

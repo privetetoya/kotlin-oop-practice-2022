@@ -1,5 +1,7 @@
 package lab3
 
+import lab3.Application.ApplicationForNotes
+
 fun main() {
     val service = ApplicationForNotes()
 
