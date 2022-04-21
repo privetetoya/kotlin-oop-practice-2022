@@ -2,9 +2,9 @@ package lab3
 
 import java.time.LocalDateTime
 
-class ApplicationForNotes() : NoteInterface {
+class ApplicationForNotes : NoteInterface {
     private var noteList: MutableList<Note> = mutableListOf()
-    fun addToList(note: Note) {
+    fun add(note: Note) {
         noteList.add(note)
     }
 
@@ -25,20 +25,15 @@ class ApplicationForNotes() : NoteInterface {
     override fun createUrl(title: String, content: String, url: String): Note.Link =
         Note.Link(title, content, LocalDateTime.now(), url)
 
-
     override fun removeNote(note: Note) {
         noteList.remove(note)
     }
 
     override fun findByTitle(title: String): List<Note> = noteList.filter { it.title == title }
 
-
-    override fun findByType(type: Class<Any>): List<Note> = noteList.filter {
-        it.javaClass == type
-    }
+    override fun findByType(type: Class<Any>): List<Note> = noteList.filter { it.javaClass == type }
 
     override fun getSortedByTitle(): List<Note> = noteList.sortedBy { it.title }.toMutableList()
-
 
     override fun getSortedByDate(): List<Note> = noteList.sortedBy { it.date }.toMutableList()
 

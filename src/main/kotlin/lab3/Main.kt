@@ -1,17 +1,24 @@
 package lab3
 
-fun main()
-{
+fun main() {
     val service = ApplicationForNotes()
-    val textNote = service.createTextNote("Going to the doctor", "I need to go to the clinic and get a certificate", )
-    val taskNote = service.createTask("Today task", "go to class", "19.02.2018")
-    val linkNote = service.createUrl("github link", "Our link", "https://github.com/C0ffee-Hunter/kotlin-oop-practice-2022/tree/master/src/main/kotlin")
 
-    service.addToList(linkNote)
-    service.addToList(textNote)
-    service.addToList(taskNote)
+    val textNote = service.createTextNote("Going to the doctor", "I need to go to the clinic and get a certificate")
+    val taskNote = service.createTask("My task", "I have to go to the doctor", "2022-02-22T19:00:00")
+    val linkNote = service.createUrl(
+        "There may be something interesting here", "Link", "https://www.youtube.com/watch?v=oHg5SJYRHA0"
+    )
 
-    println(service.getAllNotes())
-    println(service.findByTitle("github link"))
-    println(service.getSortedByDate())
+    service.add(textNote)
+    service.add(taskNote)
+    service.add(linkNote)
+
+    println("List of all Notes: ${service.getAllNotes()}\n")
+    println("All Text Notes: ${service.getAllTextNotes()}\n")
+    println("All Tasks(): ${service.getAllTasks()}\n")
+    println("All Links(): ${service.getAllLinks()}\n")
+    service.removeNote(textNote)
+    println("List of Notes after removing Text Note: ${service.getAllNotes()}")
+    println("Sorted by date: ${service.getSortedByDate()}\n")
+    println(service.findByTitle("There may be something interesting here"))
 }
