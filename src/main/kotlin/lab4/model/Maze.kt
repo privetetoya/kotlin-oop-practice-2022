@@ -20,6 +20,7 @@ interface ModelChangeListener {
 
 private var mazeLength: Int = 0
 private var mazeWidth: Int = 0
+
 class Maze {
     private val maze: MutableList<MutableList<Cell>> = createMaze()
     private var playerPosition = playerPosition()
@@ -28,6 +29,7 @@ class Maze {
     fun addModelChangeListener(listener: ModelChangeListener) {
         listeners.add(listener)
     }
+
     private fun notifyListeners() {
         listeners.forEach { it.onModelChanged() }
     }
@@ -56,6 +58,7 @@ class Maze {
         }
         return maze
     }
+
     private fun playerPosition(): Pair<Int, Int> { //Bubble sort for player position
         var result = Pair(0, 0)
         for (i in 0 until mazeLength) {
@@ -156,6 +159,7 @@ class Maze {
         }
         notifyListeners()
     }
+
     override fun toString(): String {
         return buildString {
             if (status != Status.EXIT) {

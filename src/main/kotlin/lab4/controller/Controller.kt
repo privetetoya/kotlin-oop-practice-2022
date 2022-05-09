@@ -1,4 +1,5 @@
 package lab4.controller
+
 import lab4.model.Maze
 import lab4.model.Status
 
