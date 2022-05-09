@@ -7,7 +7,7 @@ import lab2.shapeInterfaces.ColoredShape2d
 class Circle(
     override val fillColor: ColorAndTransparency,
     override val borderColor: ColorAndTransparency,
-    private val radius: Double
+    val radius: Double
 ) : ColoredShape2d {
     init {
         if (radius <= 0) throw IllegalArgumentException("Circle doesn't exist")
