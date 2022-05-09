@@ -45,4 +45,5 @@ fun main() {
     println("Group of shapes by Fill color = ${shapeCollector.groupByFillColor()}\n")
     println("Group of shapes by type = ${shapeCollector.searchForGroupOfAnyTypes()}\n")
     println("Sorted by area: ${shapeCollector.getSorted(AreaComparator())}")
+
 }
