@@ -5,7 +5,7 @@ import lab3.NoteAndInterface.NoteInterface
 import java.time.LocalDateTime
 
 class ApplicationForNotes : NoteInterface {
-    private var noteList: MutableList<Note> = mutableListOf()
+    private val noteList: MutableList<Note> = mutableListOf()
     fun add(note: Note) {
         noteList.add(note)
     }

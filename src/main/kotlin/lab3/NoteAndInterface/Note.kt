@@ -1,26 +1,24 @@
 package lab3.NoteAndInterface
 
 import java.time.LocalDateTime
-
-sealed class Note(var title: String, var content: String, val date: LocalDateTime) {
-    class TextNote(titleOfTextNote: String, contentOfTextNote: String, dateOfTextNote: LocalDateTime) :
-        Note(titleOfTextNote, contentOfTextNote, dateOfTextNote) {
+sealed class Note(open var title: String, open var content: String, open val date: LocalDateTime) {
+    data class TextNote(override var title: String, override var content: String, override var date: LocalDateTime) : Note(title, content, date) {
         override fun toString(): String {
-            return "Title: '$title'\nContent: $content\nDate: $date"
+            return "Title: '$title'\nContent: '$content'\n Date: $date)"
         }
     }
 
-    class Task(titleOfTask: String, contentOfTask: String, dateOfTask: LocalDateTime, private var deadline: String) :
-        Note(titleOfTask, contentOfTask, dateOfTask) {
+    data class Task(override var title: String, override var content: String, override var date: LocalDateTime, var deadline: String) :
+        Note(title, content, date) {
         override fun toString(): String {
-            return "Title: '$title'\nTask: $content\nDeadline: $deadline\nDate: $date"
+            return "Title: '$title'\n Content: '$content'\n Date: '$date'\n Deadline: '$deadline'"
         }
     }
 
-    class Link(titleOfLink: String, contentOfLink: String, dateOfLink: LocalDateTime, private var url: String) :
-        Note(titleOfLink, contentOfLink, dateOfLink) {
+    data class Link(override var title: String, override var content: String, override var date: LocalDateTime, var url: String) :
+        Note(title, content, date) {
         override fun toString(): String {
-            return "Title: '$title'\nContent: '$content'\nURL: $url\nDate: $date"
+            return "Title: '$title'\n Content: '$content'\n Date: '$date'\n Link: '$url'"
         }
     }
 }
