@@ -1,4 +1,4 @@
-package lab3.NoteAndInterface
+package lab3.noteAndInterface
 
 interface NoteInterface {
     fun getAllNotes(): List<Note>
